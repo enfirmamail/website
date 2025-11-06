@@ -54,9 +54,9 @@
                     <a href="https://dentaldesk.dk/" target="_blank" rel="noopener noreferrer" class="dashboard-card__logo">
                       <img src="/dentaldesk-logo.svg" alt="DentalDesk" />
                     </a>
-                    <a href="#" class="dashboard-card__logo">
-                      <!-- Add third logo here -->
-                    </a>
+                    <div class="dashboard-card__logo dashboard-card__logo--coming-soon">
+                      <span class="coming-soon-text">Coming soon</span>
+                    </div>
                   </div>
                 </div>
                 <div class="dashboard-card__row">
@@ -65,12 +65,12 @@
                     <a href="https://dentaldesk.dk/" target="_blank" rel="noopener noreferrer" class="dashboard-card__logo">
                       <img src="/dentaldesk-logo.svg" alt="DentalDesk" />
                     </a>
-                    <a href="#" class="dashboard-card__logo">
-                      <!-- Add second logo here -->
-                    </a>
-                    <a href="#" class="dashboard-card__logo">
-                      <!-- Add third logo here -->
-                    </a>
+                    <div class="dashboard-card__logo dashboard-card__logo--coming-soon">
+                      <span class="coming-soon-text">Coming soon</span>
+                    </div>
+                    <div class="dashboard-card__logo dashboard-card__logo--coming-soon">
+                      <span class="coming-soon-text">Coming soon</span>
+                    </div>
                   </div>
                 </div>
                 <div class="dashboard-card__row">
@@ -79,12 +79,12 @@
                     <a href="https://dmify.net" target="_blank" rel="noopener noreferrer" class="dashboard-card__logo">
                       <img src="/logos/dmify-logo.png" alt="DMIFY" />
                     </a>
-                    <a href="#" class="dashboard-card__logo">
-                      <!-- Add second logo here -->
-                    </a>
-                    <a href="#" class="dashboard-card__logo">
-                      <!-- Add third logo here -->
-                    </a>
+                    <div class="dashboard-card__logo dashboard-card__logo--coming-soon">
+                      <span class="coming-soon-text">Coming soon</span>
+                    </div>
+                    <div class="dashboard-card__logo dashboard-card__logo--coming-soon">
+                      <span class="coming-soon-text">Coming soon</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -259,8 +259,16 @@
             <p class="section__subtitle">Got a project in mind? Tell us about it. We'll get back to you within 24 hours.</p>
             <div class="contact__card">
               <p class="contact__note">Fill this out and we'll get back to you. No spam, no sales pitches, just a real conversation.</p>
-              <!-- Form placeholder - can be replaced with WordPress form plugin shortcode later -->
-              <form class="contact__form" id="contact-form">
+              <!-- 
+                WORDPRESS FORM INTEGRATION:
+                Replace this form with a WordPress form plugin shortcode, for example:
+                - Contact Form 7: [contact-form-7 id="123"]
+                - WPForms: [wpforms id="123"]
+                - Gravity Forms: [gravityform id="1"]
+                
+                The form styles are already set up, so the plugin form will inherit the styling.
+              -->
+              <form class="contact__form" id="contact-form" action="#" method="POST">
                 <div class="form-group">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" id="name" name="name" class="form-input" required />

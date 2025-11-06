@@ -190,10 +190,13 @@ body {
   font-weight: 500;
   transition: color var(--transition-base);
   position: relative;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
 }
 
 .nav__link:hover {
   color: var(--color-primary-strong);
+  background-color: var(--color-bg);
 }
 
 .nav__link:focus {
@@ -202,6 +205,12 @@ body {
 
 .nav__link:focus-visible {
   outline: none;
+}
+
+.nav__link--active {
+  color: var(--color-primary-strong);
+  background-color: var(--color-brand-soft-3);
+  font-weight: 600;
 }
 
 /* Mobile Navigation Toggle */

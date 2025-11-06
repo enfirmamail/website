@@ -41,6 +41,61 @@ function initSmoothScrolling() {
 }
 
 // ============================================
+// Active Navigation Link on Scroll
+// ============================================
+function initActiveNavigation() {
+  const sections = document.querySelectorAll('section[id]')
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav__link')
+  
+  if (sections.length === 0 || navLinks.length === 0) return
+  
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id')
+          if (id) {
+            // Remove active class from all links
+            navLinks.forEach(link => {
+              link.classList.remove('nav__link--active')
+            })
+            
+            // Add active class to corresponding link
+            const activeLink = document.querySelector(`.nav__link[href="#${id}"]`)
+            if (activeLink) {
+              activeLink.classList.add('nav__link--active')
+            }
+          }
+        }
+      })
+    },
+    {
+      threshold: 0.3,
+      rootMargin: '-100px 0px -50% 0px'
+    }
+  )
+  
+  sections.forEach((section) => {
+    observer.observe(section)
+  })
+  
+  // Set home as active by default if at top of page
+  const handleScroll = () => {
+    if (window.scrollY < 100) {
+      navLinks.forEach(link => {
+        link.classList.remove('nav__link--active')
+        if (link.getAttribute('href') === '#home') {
+          link.classList.add('nav__link--active')
+        }
+      })
+    }
+  }
+  
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Check on load
+}
+
+// ============================================
 // Mobile Navigation Toggle
 // ============================================
 function initMobileNav() {
@@ -194,4 +249,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress()
   initScrollAnimations()
   initMagneticEffect()
+  initActiveNavigation()
 })

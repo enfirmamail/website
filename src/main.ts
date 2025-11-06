@@ -93,10 +93,52 @@ function initContactForm() {
 }
 
 // ============================================
+// Scroll Animations - Fade in on scroll
+// ============================================
+function initScrollAnimations() {
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  
+  if (prefersReducedMotion) {
+    // Remove fade-in class if user prefers reduced motion
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.remove('fade-in')
+    })
+    return
+  }
+  
+  // Create Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in--visible')
+          // Optional: unobserve after animation to improve performance
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      // Start animation when element is 20% visible
+      threshold: 0.2,
+      // Trigger 50px before element enters viewport
+      rootMargin: '0px 0px -50px 0px'
+    }
+  )
+  
+  // Observe all elements with fade-in class
+  const fadeElements = document.querySelectorAll('.fade-in')
+  fadeElements.forEach((el) => {
+    observer.observe(el)
+  })
+}
+
+// ============================================
 // Initialize all functionality when DOM is ready
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
   initSmoothScrolling()
   initMobileNav()
   initContactForm()
+  initScrollAnimations()
 })

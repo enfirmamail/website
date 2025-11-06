@@ -49,107 +49,88 @@ function initActiveNavigation() {
   
   if (sections.length === 0 || navLinks.length === 0) return
   
-  let ticking = false
-  let lastActiveSection = 'home'
+  let activeSectionId = 'home'
+  let isUpdating = false
   
   const updateActiveLink = (sectionId: string) => {
-    if (sectionId === lastActiveSection) return
+    // Prevent rapid updates
+    if (isUpdating || sectionId === activeSectionId) return
     
-    lastActiveSection = sectionId
+    isUpdating = true
+    activeSectionId = sectionId
     
-    navLinks.forEach(link => {
-      link.classList.remove('nav__link--active')
-      const href = link.getAttribute('href')
-      if (href && href === `#${sectionId}`) {
-        link.classList.add('nav__link--active')
-      }
-    })
-  }
-  
-  const handleScroll = () => {
-    if (ticking) return
-    
-    ticking = true
+    // Use requestAnimationFrame to batch DOM updates
     requestAnimationFrame(() => {
-      const scrollPosition = window.scrollY + 200 // Offset for header + buffer
-      
-      // If at the top, set home as active
-      if (window.scrollY < 150) {
-        updateActiveLink('home')
-        ticking = false
-        return
-      }
-      
-      let currentSection = ''
-      let minDistance = Infinity
-      
-      sections.forEach((section) => {
-        const sectionElement = section as HTMLElement
-        const sectionTop = sectionElement.offsetTop
-        const sectionHeight = sectionElement.offsetHeight
-        const sectionId = section.getAttribute('id') || ''
-        const sectionCenter = sectionTop + sectionHeight / 2
-        const distanceFromCenter = Math.abs(scrollPosition - sectionCenter)
-        
-        // Check if scroll position is within section bounds
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          if (distanceFromCenter < minDistance) {
-            minDistance = distanceFromCenter
-            currentSection = sectionId
-          }
+      navLinks.forEach(link => {
+        link.classList.remove('nav__link--active')
+        const href = link.getAttribute('href')
+        if (href && href === `#${sectionId}`) {
+          link.classList.add('nav__link--active')
         }
       })
-      
-      // If we found a section, update active link
-      if (currentSection) {
-        updateActiveLink(currentSection)
-      }
-      
-      ticking = false
+      isUpdating = false
     })
   }
   
-  // Use Intersection Observer for more accurate tracking
+  // Use Intersection Observer with debouncing
+  let observerTimeout: number | null = null
+  const sectionVisibility = new Map<string, number>()
+  
   const observer = new IntersectionObserver(
     (entries) => {
-      if (ticking) return
+      // Debounce observer updates
+      if (observerTimeout) {
+        clearTimeout(observerTimeout)
+      }
       
-      ticking = true
-      requestAnimationFrame(() => {
-        let mostVisibleSection = ''
-        let maxVisibility = 0
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id')
+        if (!id) return
         
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > maxVisibility) {
-            maxVisibility = entry.intersectionRatio
-            const id = entry.target.getAttribute('id')
-            if (id) {
-              mostVisibleSection = id
-            }
+        sectionVisibility.set(id, entry.isIntersecting ? entry.intersectionRatio : 0)
+      })
+      
+      observerTimeout = window.setTimeout(() => {
+        // Handle top of page first
+        if (window.scrollY < 150) {
+          updateActiveLink('home')
+          return
+        }
+        
+        // Find section with highest visibility
+        let maxVisibility = 0
+        let mostVisibleSection = ''
+        
+        sectionVisibility.forEach((visibility, sectionId) => {
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility
+            mostVisibleSection = sectionId
           }
         })
         
-        if (mostVisibleSection && window.scrollY > 150) {
+        // Only update if section is significantly visible
+        if (mostVisibleSection && maxVisibility > 0.2) {
           updateActiveLink(mostVisibleSection)
-        } else if (window.scrollY < 150) {
-          updateActiveLink('home')
         }
-        
-        ticking = false
-      })
+      }, 50) // Small delay to prevent rapid updates
     },
     {
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-      rootMargin: '-150px 0px -40% 0px'
+      threshold: [0, 0.3, 0.5, 0.7, 1],
+      rootMargin: '-100px 0px -45% 0px'
     }
   )
   
+  // Initialize all sections
   sections.forEach((section) => {
+    const id = section.getAttribute('id')
+    if (id) {
+      sectionVisibility.set(id, 0)
+    }
     observer.observe(section)
   })
   
-  window.addEventListener('scroll', handleScroll, { passive: true })
-  handleScroll() // Check on load
+  // Set home as active initially
+  updateActiveLink('home')
 }
 
 // ============================================

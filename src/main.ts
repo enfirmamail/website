@@ -167,9 +167,9 @@ function initMagneticEffect() {
       const x = e.clientX - rect.left - rect.width / 2
       const y = e.clientY - rect.top - rect.height / 2
       
-      // Calculate movement (smaller range for subtle effect)
-      const moveX = x * 0.15
-      const moveY = y * 0.15
+      // Calculate movement (subtle effect)
+      const moveX = x * 0.08
+      const moveY = y * 0.08
       
       // Store original transform for hover states
       element.style.setProperty('--magnetic-x', `${moveX}px`)

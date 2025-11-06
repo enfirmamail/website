@@ -93,6 +93,20 @@ function initContactForm() {
 }
 
 // ============================================
+// Scroll Progress Indicator
+// ============================================
+function initScrollProgress() {
+  const scrollProgress = document.getElementById('scroll-progress')
+  if (!scrollProgress) return
+
+  window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    const scrolled = (window.scrollY / windowHeight) * 100
+    scrollProgress.style.width = `${scrolled}%`
+  })
+}
+
+// ============================================
 // Scroll Animations - Fade in on scroll
 // ============================================
 function initScrollAnimations() {
@@ -140,5 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScrolling()
   initMobileNav()
   initContactForm()
+  initScrollProgress()
   initScrollAnimations()
 })

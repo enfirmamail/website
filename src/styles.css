@@ -544,6 +544,13 @@ body {
   justify-content: center;
   margin-bottom: var(--spacing-md);
   color: var(--color-primary-strong);
+  overflow: hidden;
+}
+
+.service-card__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .service-card__title {

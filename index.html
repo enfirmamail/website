@@ -4,10 +4,280 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>AI Studio - Websites, AI Agents & Apps</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- Main container for page content -->
+    <div id="app">
+      <!-- Header / Navigation -->
+      <header class="header">
+        <nav class="nav container">
+          <div class="nav__logo">AI Studio</div>
+          <ul class="nav__menu" id="nav-menu">
+            <li><a href="#home" class="nav__link">Home</a></li>
+            <li><a href="#services" class="nav__link">Services</a></li>
+            <li><a href="#process" class="nav__link">Process</a></li>
+            <li><a href="#results" class="nav__link">Results</a></li>
+            <li><a href="#stack" class="nav__link">Stack</a></li>
+            <li><a href="#contact" class="nav__link">Contact</a></li>
+          </ul>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section">
+          <div class="container hero__container">
+            <div class="hero__content">
+              <span class="hero__badge">AI-powered websites, agents & apps</span>
+              <h1 class="hero__title">We build digital products that drive results</h1>
+              <p class="hero__subtitle">Transform your business with custom websites, intelligent AI agents, and powerful mobile & web applications.</p>
+              <div class="hero__buttons">
+                <a href="#contact" class="btn btn--primary">Book a strategy call</a>
+                <a href="#results" class="btn btn--secondary">View our work</a>
+              </div>
+            </div>
+            <div class="hero__dashboard">
+              <div class="dashboard-card">
+                <div class="dashboard-card__row">
+                  <div class="dashboard-card__label">Website</div>
+                  <span class="status-badge status-badge--live">Live</span>
+                </div>
+                <div class="dashboard-card__row">
+                  <div class="dashboard-card__label">AI Agent</div>
+                  <span class="status-badge status-badge--optimizing">Optimizing</span>
+                </div>
+                <div class="dashboard-card__row">
+                  <div class="dashboard-card__label">App</div>
+                  <span class="status-badge status-badge--development">In development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section">
+          <div class="container">
+            <h2 class="section__title">Our Services</h2>
+            <p class="section__subtitle">We deliver end-to-end digital solutions tailored to your business needs</p>
+            <div class="services__grid">
+              <!-- Service Card 1: Websites -->
+              <div class="service-card">
+                <div class="service-card__icon">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 18h32M20 12v24" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Websites</h3>
+                <p class="service-card__description">Custom, responsive websites that convert visitors into customers.</p>
+                <ul class="service-card__features">
+                  <li>Responsive design</li>
+                  <li>SEO optimization</li>
+                  <li>Fast performance</li>
+                </ul>
+                <a href="#contact" class="service-card__link">Learn more →</a>
+              </div>
+
+              <!-- Service Card 2: AI Agents -->
+              <div class="service-card">
+                <div class="service-card__icon">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="18" cy="20" r="2" fill="currentColor"/>
+                    <circle cx="30" cy="20" r="2" fill="currentColor"/>
+                    <path d="M18 30c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">AI Agents</h3>
+                <p class="service-card__description">Intelligent automation that handles tasks, answers questions, and scales your operations.</p>
+                <ul class="service-card__features">
+                  <li>Custom AI workflows</li>
+                  <li>Natural language processing</li>
+                  <li>24/7 automation</li>
+                </ul>
+                <a href="#contact" class="service-card__link">Learn more →</a>
+              </div>
+
+              <!-- Service Card 3: Mobile & Web Apps -->
+              <div class="service-card">
+                <div class="service-card__icon">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="14" y="8" width="20" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="24" cy="36" r="1.5" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Mobile & Web Apps</h3>
+                <p class="service-card__description">Native and cross-platform applications that deliver exceptional user experiences.</p>
+                <ul class="service-card__features">
+                  <li>iOS & Android apps</li>
+                  <li>Progressive web apps</li>
+                  <li>Real-time features</li>
+                </ul>
+                <a href="#contact" class="service-card__link">Learn more →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process section">
+          <div class="container">
+            <h2 class="section__title">How It Works</h2>
+            <p class="section__subtitle">Our proven process ensures your project succeeds from start to finish</p>
+            <div class="process__steps">
+              <div class="process-step">
+                <div class="process-step__number">1</div>
+                <h3 class="process-step__title">Discover</h3>
+                <p class="process-step__description">We dive deep into your business goals, target audience, and technical requirements to create a strategic roadmap.</p>
+              </div>
+              <div class="process-step">
+                <div class="process-step__number">2</div>
+                <h3 class="process-step__title">Design</h3>
+                <p class="process-step__description">Our team creates wireframes, prototypes, and visual designs that align with your brand and user expectations.</p>
+              </div>
+              <div class="process-step">
+                <div class="process-step__number">3</div>
+                <h3 class="process-step__title">Build</h3>
+                <p class="process-step__description">We develop your solution using best practices, modern technologies, and agile methodologies for rapid iteration.</p>
+              </div>
+              <div class="process-step">
+                <div class="process-step__number">4</div>
+                <h3 class="process-step__title">Launch & Optimize</h3>
+                <p class="process-step__description">We deploy your product, monitor performance, and continuously optimize based on real user data and feedback.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results / Case Studies Section -->
+        <section id="results" class="results section">
+          <div class="container">
+            <h2 class="section__title">Results That Matter</h2>
+            <p class="section__subtitle">See how we've helped businesses achieve their goals</p>
+            <div class="results__grid">
+              <div class="result-card">
+                <h3 class="result-card__client">TechCorp Solutions</h3>
+                <p class="result-card__description">Complete website redesign with AI-powered customer support agent integration.</p>
+                <div class="result-card__metrics">
+                  <div class="metric">
+                    <span class="metric__value">+40%</span>
+                    <span class="metric__label">Conversion Rate</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric__value">-30%</span>
+                    <span class="metric__label">Support Tickets</span>
+                  </div>
+                </div>
+              </div>
+              <div class="result-card">
+                <h3 class="result-card__client">StartupHub</h3>
+                <p class="result-card__description">Mobile app development with real-time collaboration features and cloud sync.</p>
+                <div class="result-card__metrics">
+                  <div class="metric">
+                    <span class="metric__value">50K+</span>
+                    <span class="metric__label">Active Users</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric__value">4.8★</span>
+                    <span class="metric__label">App Store Rating</span>
+                  </div>
+                </div>
+              </div>
+              <div class="result-card">
+                <h3 class="result-card__client">E-Commerce Plus</h3>
+                <p class="result-card__description">E-commerce platform with AI recommendation engine and automated inventory management.</p>
+                <div class="result-card__metrics">
+                  <div class="metric">
+                    <span class="metric__value">+65%</span>
+                    <span class="metric__label">Revenue Growth</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric__value">2.5x</span>
+                    <span class="metric__label">Average Order Value</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="stack" class="stack section">
+          <div class="container">
+            <h2 class="section__title">Our Tech Stack</h2>
+            <p class="section__subtitle">We use modern, reliable technologies to build scalable solutions</p>
+            <div class="stack__badges">
+              <span class="stack-badge">WordPress</span>
+              <span class="stack-badge">Next.js</span>
+              <span class="stack-badge">OpenAI</span>
+              <span class="stack-badge">Vercel</span>
+              <span class="stack-badge">Stripe</span>
+              <span class="stack-badge">React</span>
+              <span class="stack-badge">TypeScript</span>
+              <span class="stack-badge">Node.js</span>
+              <span class="stack-badge">PostgreSQL</span>
+              <span class="stack-badge">AWS</span>
+              <span class="stack-badge">Docker</span>
+              <span class="stack-badge">GraphQL</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="contact section">
+          <div class="container">
+            <h2 class="section__title">Let's Build Something Great</h2>
+            <p class="section__subtitle">Ready to transform your business? Get in touch and we'll reply within 24 hours.</p>
+            <div class="contact__card">
+              <p class="contact__note">Drop in your details and we'll reply within 24 hours.</p>
+              <!-- Form placeholder - can be replaced with WordPress form plugin shortcode later -->
+              <form class="contact__form" id="contact-form">
+                <div class="form-group">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" id="name" name="name" class="form-input" required />
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" class="form-input" required />
+                </div>
+                <div class="form-group">
+                  <label for="project-type" class="form-label">Project Type</label>
+                  <select id="project-type" name="project-type" class="form-input" required>
+                    <option value="">Select a project type</option>
+                    <option value="website">Website</option>
+                    <option value="ai-agent">AI Agent</option>
+                    <option value="mobile-app">Mobile App</option>
+                    <option value="web-app">Web App</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea id="message" name="message" class="form-input form-textarea" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p class="footer__text">&copy; 2024 AI Studio. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

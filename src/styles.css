@@ -197,9 +197,11 @@ body {
 }
 
 .nav__link:focus {
-  outline: 2px solid var(--color-primary-strong);
-  outline-offset: 4px;
-  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.nav__link:focus-visible {
+  outline: none;
 }
 
 /* Mobile Navigation Toggle */

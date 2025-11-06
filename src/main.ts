@@ -49,29 +49,44 @@ function initActiveNavigation() {
   
   if (sections.length === 0 || navLinks.length === 0) return
   
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + 150 // Offset for header + some buffer
+    
+    let currentSection = ''
+    
+    sections.forEach((section) => {
+      const sectionTop = (section as HTMLElement).offsetTop
+      const sectionHeight = (section as HTMLElement).offsetHeight
+      const sectionId = section.getAttribute('id')
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        currentSection = sectionId || ''
+      }
+    })
+    
+    // If at the top, set home as active
+    if (scrollPosition < 200) {
+      currentSection = 'home'
+    }
+    
+    // Update active link
+    navLinks.forEach(link => {
+      link.classList.remove('nav__link--active')
+      const href = link.getAttribute('href')
+      if (href && href === `#${currentSection}`) {
+        link.classList.add('nav__link--active')
+      }
+    })
+  }
+  
+  // Use Intersection Observer as fallback and scroll listener
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id')
-          if (id) {
-            // Remove active class from all links
-            navLinks.forEach(link => {
-              link.classList.remove('nav__link--active')
-            })
-            
-            // Add active class to corresponding link
-            const activeLink = document.querySelector(`.nav__link[href="#${id}"]`)
-            if (activeLink) {
-              activeLink.classList.add('nav__link--active')
-            }
-          }
-        }
-      })
+      handleScroll()
     },
     {
-      threshold: 0.3,
-      rootMargin: '-100px 0px -50% 0px'
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+      rootMargin: '-120px 0px -60% 0px'
     }
   )
   
@@ -79,19 +94,7 @@ function initActiveNavigation() {
     observer.observe(section)
   })
   
-  // Set home as active by default if at top of page
-  const handleScroll = () => {
-    if (window.scrollY < 100) {
-      navLinks.forEach(link => {
-        link.classList.remove('nav__link--active')
-        if (link.getAttribute('href') === '#home') {
-          link.classList.add('nav__link--active')
-        }
-      })
-    }
-  }
-  
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll() // Check on load
 }
 

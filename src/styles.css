@@ -356,7 +356,7 @@ body {
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-lg);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
 }
 
 .dashboard-card__title {
@@ -385,6 +385,12 @@ body {
   color: var(--color-text-main);
 }
 
+.dashboard-card__logos {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
 .dashboard-card__logo {
   display: flex;
   align-items: center;
@@ -397,11 +403,14 @@ body {
   text-decoration: none;
   transition: all var(--transition-base);
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .dashboard-card__logo:hover {
   border-color: var(--color-brand-soft);
   background-color: var(--color-brand-soft-3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .dashboard-card__logo:focus {
@@ -414,6 +423,7 @@ body {
   height: 100%;
   object-fit: contain;
   padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
 }
 
 .status-badge {
@@ -544,13 +554,6 @@ body {
   justify-content: center;
   margin-bottom: var(--spacing-md);
   color: var(--color-primary-strong);
-  overflow: hidden;
-}
-
-.service-card__icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .service-card__title {

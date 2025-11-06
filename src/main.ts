@@ -148,6 +148,43 @@ function initScrollAnimations() {
 }
 
 // ============================================
+// Magnetic Effect for Buttons
+// ============================================
+function initMagneticEffect() {
+  const magneticElements = document.querySelectorAll<HTMLElement>('.btn--magnetic')
+  
+  magneticElements.forEach((element) => {
+    let isHovered = false
+    
+    element.addEventListener('mouseenter', () => {
+      isHovered = true
+    })
+    
+    element.addEventListener('mousemove', (e) => {
+      if (!isHovered) return
+      
+      const rect = element.getBoundingClientRect()
+      const x = e.clientX - rect.left - rect.width / 2
+      const y = e.clientY - rect.top - rect.height / 2
+      
+      // Calculate movement (smaller range for subtle effect)
+      const moveX = x * 0.15
+      const moveY = y * 0.15
+      
+      // Store original transform for hover states
+      element.style.setProperty('--magnetic-x', `${moveX}px`)
+      element.style.setProperty('--magnetic-y', `${moveY}px`)
+    })
+    
+    element.addEventListener('mouseleave', () => {
+      isHovered = false
+      element.style.setProperty('--magnetic-x', '0px')
+      element.style.setProperty('--magnetic-y', '0px')
+    })
+  })
+}
+
+// ============================================
 // Initialize all functionality when DOM is ready
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -156,4 +193,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm()
   initScrollProgress()
   initScrollAnimations()
+  initMagneticEffect()
 })

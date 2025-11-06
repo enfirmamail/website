@@ -155,10 +155,12 @@ body {
 .header {
   position: sticky;
   top: 0;
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
   z-index: 1000;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
 }
 
 .nav {
@@ -236,11 +238,13 @@ body {
     top: 70px;
     left: 0;
     right: 0;
-    background-color: var(--color-surface);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     flex-direction: column;
     padding: var(--spacing-lg);
     gap: var(--spacing-md);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
     box-shadow: var(--shadow-md);
     transform: translateY(-100%);
     opacity: 0;
@@ -504,33 +508,28 @@ body {
   font-family: inherit;
   transition: all var(--transition-base);
   line-height: 1.5;
+  position: relative;
+}
+
+.btn--magnetic {
+  --magnetic-x: 0px;
+  --magnetic-y: 0px;
+  transform: translate(var(--magnetic-x), var(--magnetic-y));
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+              background-color var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
 }
 
 .btn--primary {
   background-color: var(--color-primary-strong);
   color: var(--color-surface);
   position: relative;
-  overflow: hidden;
-}
-
-.btn--primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.btn--primary:hover::before {
-  left: 100%;
 }
 
 .btn--primary:hover {
   background-color: var(--color-brand-soft);
-  transform: translateY(-3px) scale(1.05);
+  transform: translate(var(--magnetic-x), calc(var(--magnetic-y) - 3px)) scale(1.05);
   box-shadow: var(--shadow-lg);
 }
 
@@ -547,7 +546,7 @@ body {
 
 .btn--secondary:hover {
   background-color: var(--color-brand-soft-3);
-  transform: translateY(-3px) scale(1.05);
+  transform: translate(var(--magnetic-x), calc(var(--magnetic-y) - 3px)) scale(1.05);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-brand-soft);
 }

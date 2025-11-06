@@ -49,44 +49,98 @@ function initActiveNavigation() {
   
   if (sections.length === 0 || navLinks.length === 0) return
   
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY + 150 // Offset for header + some buffer
+  let ticking = false
+  let lastActiveSection = 'home'
+  
+  const updateActiveLink = (sectionId: string) => {
+    if (sectionId === lastActiveSection) return
     
-    let currentSection = ''
+    lastActiveSection = sectionId
     
-    sections.forEach((section) => {
-      const sectionTop = (section as HTMLElement).offsetTop
-      const sectionHeight = (section as HTMLElement).offsetHeight
-      const sectionId = section.getAttribute('id')
-      
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        currentSection = sectionId || ''
-      }
-    })
-    
-    // If at the top, set home as active
-    if (scrollPosition < 200) {
-      currentSection = 'home'
-    }
-    
-    // Update active link
     navLinks.forEach(link => {
       link.classList.remove('nav__link--active')
       const href = link.getAttribute('href')
-      if (href && href === `#${currentSection}`) {
+      if (href && href === `#${sectionId}`) {
         link.classList.add('nav__link--active')
       }
     })
   }
   
-  // Use Intersection Observer as fallback and scroll listener
+  const handleScroll = () => {
+    if (ticking) return
+    
+    ticking = true
+    requestAnimationFrame(() => {
+      const scrollPosition = window.scrollY + 200 // Offset for header + buffer
+      
+      // If at the top, set home as active
+      if (window.scrollY < 150) {
+        updateActiveLink('home')
+        ticking = false
+        return
+      }
+      
+      let currentSection = ''
+      let minDistance = Infinity
+      
+      sections.forEach((section) => {
+        const sectionElement = section as HTMLElement
+        const sectionTop = sectionElement.offsetTop
+        const sectionHeight = sectionElement.offsetHeight
+        const sectionId = section.getAttribute('id') || ''
+        const sectionCenter = sectionTop + sectionHeight / 2
+        const distanceFromCenter = Math.abs(scrollPosition - sectionCenter)
+        
+        // Check if scroll position is within section bounds
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          if (distanceFromCenter < minDistance) {
+            minDistance = distanceFromCenter
+            currentSection = sectionId
+          }
+        }
+      })
+      
+      // If we found a section, update active link
+      if (currentSection) {
+        updateActiveLink(currentSection)
+      }
+      
+      ticking = false
+    })
+  }
+  
+  // Use Intersection Observer for more accurate tracking
   const observer = new IntersectionObserver(
     (entries) => {
-      handleScroll()
+      if (ticking) return
+      
+      ticking = true
+      requestAnimationFrame(() => {
+        let mostVisibleSection = ''
+        let maxVisibility = 0
+        
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > maxVisibility) {
+            maxVisibility = entry.intersectionRatio
+            const id = entry.target.getAttribute('id')
+            if (id) {
+              mostVisibleSection = id
+            }
+          }
+        })
+        
+        if (mostVisibleSection && window.scrollY > 150) {
+          updateActiveLink(mostVisibleSection)
+        } else if (window.scrollY < 150) {
+          updateActiveLink('home')
+        }
+        
+        ticking = false
+      })
     },
     {
-      threshold: [0, 0.25, 0.5, 0.75, 1],
-      rootMargin: '-120px 0px -60% 0px'
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      rootMargin: '-150px 0px -40% 0px'
     }
   )
   

@@ -50,39 +50,28 @@ function initActiveNavigation() {
   if (sections.length === 0 || navLinks.length === 0) return
   
   let activeSectionId = 'home'
-  let isUpdating = false
   
   const updateActiveLink = (sectionId: string) => {
-    // Prevent rapid updates
-    if (isUpdating || sectionId === activeSectionId) return
+    // Only update if it's different
+    if (sectionId === activeSectionId) return
     
-    isUpdating = true
     activeSectionId = sectionId
     
-    // Use requestAnimationFrame to batch DOM updates
-    requestAnimationFrame(() => {
-      navLinks.forEach(link => {
-        link.classList.remove('nav__link--active')
-        const href = link.getAttribute('href')
-        if (href && href === `#${sectionId}`) {
-          link.classList.add('nav__link--active')
-        }
-      })
-      isUpdating = false
+    navLinks.forEach(link => {
+      link.classList.remove('nav__link--active')
+      const href = link.getAttribute('href')
+      if (href && href === `#${sectionId}`) {
+        link.classList.add('nav__link--active')
+      }
     })
   }
   
-  // Use Intersection Observer with debouncing
-  let observerTimeout: number | null = null
+  // Track visibility of all sections
   const sectionVisibility = new Map<string, number>()
   
   const observer = new IntersectionObserver(
     (entries) => {
-      // Debounce observer updates
-      if (observerTimeout) {
-        clearTimeout(observerTimeout)
-      }
-      
+      // Update visibility for all entries
       entries.forEach((entry) => {
         const id = entry.target.getAttribute('id')
         if (!id) return
@@ -90,37 +79,35 @@ function initActiveNavigation() {
         sectionVisibility.set(id, entry.isIntersecting ? entry.intersectionRatio : 0)
       })
       
-      observerTimeout = window.setTimeout(() => {
-        // Handle top of page first
-        if (window.scrollY < 150) {
-          updateActiveLink('home')
-          return
+      // Handle top of page
+      if (window.scrollY < 150) {
+        updateActiveLink('home')
+        return
+      }
+      
+      // Find section with highest visibility that's actually intersecting
+      let maxVisibility = 0
+      let mostVisibleSection = ''
+      
+      sectionVisibility.forEach((visibility, sectionId) => {
+        if (visibility > maxVisibility) {
+          maxVisibility = visibility
+          mostVisibleSection = sectionId
         }
-        
-        // Find section with highest visibility
-        let maxVisibility = 0
-        let mostVisibleSection = ''
-        
-        sectionVisibility.forEach((visibility, sectionId) => {
-          if (visibility > maxVisibility) {
-            maxVisibility = visibility
-            mostVisibleSection = sectionId
-          }
-        })
-        
-        // Only update if section is significantly visible
-        if (mostVisibleSection && maxVisibility > 0.2) {
-          updateActiveLink(mostVisibleSection)
-        }
-      }, 50) // Small delay to prevent rapid updates
+      })
+      
+      // Update if we have a visible section
+      if (mostVisibleSection && maxVisibility > 0) {
+        updateActiveLink(mostVisibleSection)
+      }
     },
     {
-      threshold: [0, 0.3, 0.5, 0.7, 1],
-      rootMargin: '-100px 0px -45% 0px'
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      rootMargin: '-100px 0px -50% 0px'
     }
   )
   
-  // Initialize all sections
+  // Observe all sections
   sections.forEach((section) => {
     const id = section.getAttribute('id')
     if (id) {

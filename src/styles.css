@@ -714,40 +714,71 @@ body {
   background-color: var(--color-bg);
 }
 
-.stack__badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-  justify-content: center;
+.stack__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.stack-badge {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background-color: var(--color-brand-soft-3);
-  color: var(--color-text-main);
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: var(--font-size-base);
+@media (min-width: 768px) {
+  .stack__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl) var(--spacing-lg);
+  }
+}
+
+@media (min-width: 968px) {
+  .stack__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stack__category {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
   transition: all var(--transition-base);
-  border: 1px solid transparent;
 }
 
-.stack-badge:hover {
-  background-color: var(--color-brand-soft-2);
-  transform: translateY(-2px);
+.stack__category:hover {
+  border-color: var(--color-brand-soft);
   box-shadow: var(--shadow-md);
 }
 
-.stack-badge:nth-child(3n) {
-  background-color: var(--color-brand-soft-2);
+.stack__category-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border);
 }
 
-.stack-badge:nth-child(3n + 1) {
+.stack__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.stack-badge {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+.stack-badge:hover {
   background-color: var(--color-brand-soft-3);
-}
-
-.stack-badge:nth-child(3n + 2) {
-  background-color: var(--color-accent-lime);
+  border-color: var(--color-brand-soft);
+  transform: translateY(-1px);
 }
 
 /* ============================================

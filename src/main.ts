@@ -1,4 +1,5 @@
 import './styles.css'
+import './cookie-consent'
 
 // ============================================
 // Smooth Scrolling for Navigation Links

@@ -80,6 +80,58 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  animation: pageFadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page transition overlay */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-bg) 100%);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    transition: none;
+  }
+  
+  #app {
+    animation: none;
+    opacity: 1;
+  }
+  
+  #app > header,
+  #app > main,
+  #app > footer {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* ============================================
@@ -1103,12 +1155,72 @@ body {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .fade-in--visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Page load animation delays - only when page loads, not on transitions */
+#app.page-loaded > header {
+  animation: slideDown 0.5s ease-out 0.1s both;
+}
+
+#app.page-loaded > main {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+#app.page-loaded > footer {
+  animation: fadeIn 0.5s ease-out 0.3s both;
+}
+
+/* Ensure smooth transitions even without page-loaded class */
+#app > header {
+  opacity: 0;
+  animation: slideDown 0.5s ease-out 0.1s both;
+}
+
+#app > main {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+#app > footer {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 0.3s both;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Staggered animation delays for cards in grids */

@@ -4,40 +4,47 @@ import './styles.css'
 // Smooth Scrolling for Navigation Links
 // ============================================
 function initSmoothScrolling() {
-  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav__link')
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href')
+  // Handle smooth scrolling for anchor links on the same page
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
+    const link = target.closest('a') as HTMLAnchorElement | null
+    
+    if (!link) return
+    
+    const href = link.getAttribute('href')
+    
+    if (!href) return
+    
+    // Only handle anchor-only links (same page, like #home)
+    // Links like "index.html#home" will be handled by page transitions
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      e.stopPropagation() // Prevent page transition from firing
       
-      // Only handle internal anchor links
-      if (href && href.startsWith('#')) {
-        e.preventDefault()
-        const targetId = href.substring(1)
-        const targetElement = document.getElementById(targetId)
-        
-        if (targetElement) {
-          // Close mobile menu if open
-          const navMenu = document.getElementById('nav-menu')
-          const navToggle = document.getElementById('nav-toggle')
-          if (navMenu && navToggle) {
-            navMenu.classList.remove('active')
-            navToggle.classList.remove('active')
-          }
-          
-          // Calculate offset for sticky header
-          const header = document.querySelector('.header')
-          const headerHeight = header ? header.getBoundingClientRect().height : 0
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          })
+      const targetId = href.substring(1)
+      const targetElement = document.getElementById(targetId)
+      
+      if (targetElement) {
+        // Close mobile menu if open
+        const navMenu = document.getElementById('nav-menu')
+        const navToggle = document.getElementById('nav-toggle')
+        if (navMenu && navToggle) {
+          navMenu.classList.remove('active')
+          navToggle.classList.remove('active')
         }
+        
+        // Calculate offset for sticky header
+        const header = document.querySelector('.header')
+        const headerHeight = header ? header.getBoundingClientRect().height : 0
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        })
       }
-    })
-  })
+    }
+  }, true) // Use capture phase to handle before page transitions
 }
 
 // ============================================
@@ -265,6 +272,85 @@ function initMagneticEffect() {
 }
 
 // ============================================
+// Page Transition Effects
+// ============================================
+function initPageTransitions() {
+  // Create page transition overlay
+  const transitionOverlay = document.createElement('div')
+  transitionOverlay.className = 'page-transition'
+  document.body.appendChild(transitionOverlay)
+  
+  // Add event listeners to all links for page transitions
+  // This runs after smooth scrolling, so anchor links are already handled
+  document.addEventListener('click', (e) => {
+    // Check if event was already handled by smooth scrolling
+    if (e.defaultPrevented) return
+    
+    const target = e.target as HTMLElement
+    const link = target.closest('a') as HTMLAnchorElement | null
+    
+    if (!link) return
+    
+    const href = link.getAttribute('href')
+    
+    if (!href) return
+    
+    // Skip anchor links (already handled by smooth scrolling)
+    if (href.startsWith('#')) return
+    
+    // Skip external links (allow them to open normally)
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      return
+    }
+    
+    // Skip mailto and tel links
+    if (href.startsWith('mailto:') || href.startsWith('tel:')) return
+    
+    // Skip if link has target="_blank" or download attribute
+    if (link.hasAttribute('target') || link.hasAttribute('download')) {
+      return
+    }
+    
+    // Handle internal page links - prevent default and show transition
+    e.preventDefault()
+    e.stopPropagation()
+    
+    // Show transition overlay
+    transitionOverlay.classList.add('active')
+    
+    // Navigate after transition delay
+    setTimeout(() => {
+      window.location.href = href
+    }, 300)
+  }, false) // Use bubble phase so smooth scrolling handles first
+  
+  // Handle page show event (for back/forward navigation)
+  window.addEventListener('pageshow', () => {
+    transitionOverlay.classList.remove('active')
+  })
+  
+  // Handle page load - ensure overlay is removed and mark page as loaded
+  window.addEventListener('load', () => {
+    transitionOverlay.classList.remove('active')
+    const app = document.getElementById('app')
+    if (app) {
+      app.classList.add('page-loaded')
+    }
+  })
+  
+  // Also mark as loaded on DOMContentLoaded for faster perceived load
+  document.addEventListener('DOMContentLoaded', () => {
+    const app = document.getElementById('app')
+    if (app) {
+      // Small delay to ensure smooth transition
+      setTimeout(() => {
+        app.classList.add('page-loaded')
+      }, 50)
+    }
+  })
+}
+
+// ============================================
 // Initialize all functionality when DOM is ready
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -275,4 +361,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations()
   initMagneticEffect()
   initActiveNavigation()
+  initPageTransitions()
 })

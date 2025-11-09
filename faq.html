@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - AI Studio</title>
+  </head>
+  <body>
+    <!-- Main container for page content -->
+    <div id="app">
+      <!-- Scroll Progress Indicator -->
+      <div class="scroll-progress" id="scroll-progress"></div>
+      
+      <!-- Header / Navigation -->
+      <header class="header">
+        <nav class="nav container">
+          <a href="index.html" class="nav__logo">AI Studio</a>
+          <ul class="nav__menu" id="nav-menu">
+            <li><a href="index.html#home" class="nav__link">Home</a></li>
+            <li><a href="index.html#services" class="nav__link">Services</a></li>
+            <li><a href="index.html#process" class="nav__link">Process</a></li>
+            <li><a href="index.html#stack" class="nav__link">Stack</a></li>
+            <li><a href="blog.html" class="nav__link">Blog</a></li>
+            <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+          </ul>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <main>
+        <!-- FAQ Section -->
+        <section class="section" style="padding-top: calc(var(--spacing-2xl) + 2rem); padding-bottom: var(--spacing-2xl);">
+          <div class="container">
+            <h1 class="section__title fade-in">Frequently Asked Questions</h1>
+            <p class="section__subtitle fade-in">Got questions? We've got answers. If you don't find what you're looking for, <a href="index.html#contact" class="legal-link">get in touch</a>.</p>
+            
+            <div class="faq-content fade-in">
+              <!-- FAQ Category: Services -->
+              <div class="faq-category">
+                <h2 class="faq-category__title">Services</h2>
+                
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>What services do you offer?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>We specialize in three main areas: website development (from landing pages to complex WordPress sites), AI agent development (chatbots, automation, and AI tools), and mobile & web app development (iOS, Android, and web-based applications).</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Do you work with WordPress?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Yes! We build WordPress websites and can help you migrate existing sites to WordPress. We also work with modern frameworks like Next.js, React, and Astro depending on your project needs.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>What technologies do you use?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>We use modern, proven technologies. For frontend: Next.js, React, TypeScript, Tailwind CSS. For backend: Node.js, Python, tRPC, Prisma. For AI: OpenAI, Anthropic, LangChain, Pinecone. For infrastructure: Vercel, Cloudflare, AWS. We choose the right tool for each project.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Category: Process -->
+              <div class="faq-category">
+                <h2 class="faq-category__title">Process & Timeline</h2>
+                
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>How long does a project take?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Project timelines vary depending on scope and complexity. A simple landing page might take 2-4 weeks, while a complex web application could take 2-6 months. We'll provide a detailed timeline during our initial consultation.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>What's your development process?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>We follow a simple four-step process: 1) We listen to understand your needs, 2) We design and get your approval, 3) We build and keep you updated, 4) We launch and provide ongoing support. You're involved every step of the way.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Will I be able to provide feedback during development?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Absolutely! We believe in keeping you in the loop throughout the entire process. You'll have regular check-ins, can review work in progress, and provide feedback at every stage. No surprises, no disappearing acts.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Category: Pricing -->
+              <div class="faq-category">
+                <h2 class="faq-category__title">Pricing & Payment</h2>
+                
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>How much does a project cost?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Pricing depends on the scope and complexity of your project. We provide detailed quotes after understanding your requirements. We believe in transparent pricing with no hidden fees. Contact us for a free consultation and quote.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>What's your payment structure?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>We typically work with a milestone-based payment structure. A deposit to start, progress payments at key milestones, and final payment upon completion. Payment terms are clearly outlined in our project agreements.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Do you offer ongoing maintenance?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Yes, we offer ongoing maintenance and support packages. This includes security updates, bug fixes, content updates, and technical support. We'll discuss maintenance options that fit your needs.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Category: Technical -->
+              <div class="faq-category">
+                <h2 class="faq-category__title">Technical Questions</h2>
+                
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Will my website be mobile-friendly?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Absolutely! All websites we build are fully responsive and work perfectly on phones, tablets, and desktops. Mobile-first design is a standard part of our development process.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>How fast will my website load?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Performance is a priority for us. We optimize all websites for speed, aiming for load times under one second on fast connections. We use techniques like image optimization, code minification, caching, and CDN delivery.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Will my website be SEO-friendly?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Yes! We build websites with SEO best practices in mind. This includes proper heading structure, meta tags, semantic HTML, fast load times, mobile responsiveness, and clean URLs. We can also help with SEO setup and optimization.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Who hosts the website?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>You can choose your own hosting provider, or we can recommend and set up hosting for you. We work with reliable hosting providers like Vercel, Cloudflare, AWS, and traditional WordPress hosts. We'll help you choose the best option for your needs.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Category: AI Agents -->
+              <div class="faq-category">
+                <h2 class="faq-category__title">AI Agents</h2>
+                
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>What can AI agents do for my business?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>AI agents can automate customer support, handle inquiries, process data, answer questions, schedule appointments, and much more. They work 24/7 and can handle repetitive tasks, freeing up your team for more important work.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>How do you train AI agents?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>We train AI agents using your data, documentation, and knowledge base. We use techniques like RAG (Retrieval Augmented Generation), fine-tuning, and prompt engineering to ensure the AI understands your business and provides accurate, helpful responses.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-item__question" aria-expanded="false">
+                    <span>Can AI agents integrate with my existing systems?</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="faq-item__answer">
+                    <p>Yes! AI agents can integrate with CRM systems, databases, APIs, email systems, calendars, and other business tools. We'll work with you to understand your systems and create seamless integrations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: var(--spacing-2xl); text-align: center;">
+              <p class="legal-text" style="margin-bottom: var(--spacing-md);">Still have questions?</p>
+              <a href="index.html#contact" class="btn btn--primary btn--magnetic">Get in Touch</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__content">
+            <div class="footer__section">
+              <h3 class="footer__title">Sitemap</h3>
+              <ul class="footer__links">
+                <li><a href="index.html#home" class="footer__link">Home</a></li>
+                <li><a href="index.html#services" class="footer__link">Services</a></li>
+                <li><a href="index.html#process" class="footer__link">Process</a></li>
+                <li><a href="index.html#stack" class="footer__link">Stack</a></li>
+                <li><a href="faq.html" class="footer__link">FAQ</a></li>
+                <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Legal</h3>
+              <ul class="footer__links">
+                <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
+                <li><a href="terms.html" class="footer__link">Terms of Service</a></li>
+                <li><a href="cookie.html" class="footer__link">Cookie Policy</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Resources</h3>
+              <ul class="footer__links">
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="#" class="footer__link">Documentation</a></li>
+                <li><a href="faq.html" class="footer__link">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Our Products</h3>
+              <ul class="footer__links">
+                <li><a href="https://dmify.net" target="_blank" rel="noopener noreferrer" class="footer__link">DMIFY</a></li>
+                <li><a href="https://dentaldesk.dk/" target="_blank" rel="noopener noreferrer" class="footer__link">DentalDesk</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__text">&copy; 2024 AI Studio. All rights reserved.</p>
+            <p class="footer__built">Built with ❤️ in Copenhagen</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      // FAQ Accordion Functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const faqQuestions = document.querySelectorAll('.faq-item__question');
+        
+        faqQuestions.forEach(question => {
+          question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            const isExpanded = question.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other items
+            faqQuestions.forEach(q => {
+              if (q !== question) {
+                q.setAttribute('aria-expanded', 'false');
+                q.closest('.faq-item').classList.remove('faq-item--active');
+              }
+            });
+            
+            // Toggle current item
+            if (isExpanded) {
+              question.setAttribute('aria-expanded', 'false');
+              faqItem.classList.remove('faq-item--active');
+            } else {
+              question.setAttribute('aria-expanded', 'true');
+              faqItem.classList.add('faq-item--active');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+

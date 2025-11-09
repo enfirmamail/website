@@ -1,0 +1,28 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="90" cy="90" r="90" fill="#5C7A81"/>
+  
+  <!-- Inner circles -->
+  <circle cx="90" cy="90" r="45" fill="#FFFFFF" opacity="0.25"/>
+  <circle cx="90" cy="90" r="25" fill="#FFFFFF" opacity="0.15"/>
+  
+  <!-- Connected nodes (network) -->
+  <circle cx="45" cy="45" r="17" fill="#8DBCC7"/>
+  <circle cx="45" cy="135" r="17" fill="#8DBCC7"/>
+  <circle cx="135" cy="45" r="17" fill="#A4CCD9"/>
+  <circle cx="135" cy="135" r="17" fill="#A4CCD9"/>
+  
+  <!-- Connection lines (neural network) -->
+  <line x1="90" y1="90" x2="45" y2="45" stroke="#FFFFFF" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <line x1="90" y1="90" x2="45" y2="135" stroke="#FFFFFF" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <line x1="90" y1="90" x2="135" y2="45" stroke="#FFFFFF" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  <line x1="90" y1="90" x2="135" y2="135" stroke="#FFFFFF" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Outer connection arcs -->
+  <path d="M 45 45 Q 90 22.5 135 45" stroke="#C4E1E6" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 45 135 Q 90 157.5 135 135" stroke="#C4E1E6" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Accent dot (innovation) -->
+  <circle cx="90" cy="27" r="8" fill="#EBFFD8"/>
+</svg>
+

@@ -272,66 +272,11 @@ function initMagneticEffect() {
 }
 
 // ============================================
-// Page Transition Effects
+// Page Load Animation
 // ============================================
-function initPageTransitions() {
-  // Create page transition overlay
-  const transitionOverlay = document.createElement('div')
-  transitionOverlay.className = 'page-transition'
-  document.body.appendChild(transitionOverlay)
-  
-  // Add event listeners to all links for page transitions
-  // This runs after smooth scrolling, so anchor links are already handled
-  document.addEventListener('click', (e) => {
-    // Check if event was already handled by smooth scrolling
-    if (e.defaultPrevented) return
-    
-    const target = e.target as HTMLElement
-    const link = target.closest('a') as HTMLAnchorElement | null
-    
-    if (!link) return
-    
-    const href = link.getAttribute('href')
-    
-    if (!href) return
-    
-    // Skip anchor links (already handled by smooth scrolling)
-    if (href.startsWith('#')) return
-    
-    // Skip external links (allow them to open normally)
-    if (href.startsWith('http://') || href.startsWith('https://')) {
-      return
-    }
-    
-    // Skip mailto and tel links
-    if (href.startsWith('mailto:') || href.startsWith('tel:')) return
-    
-    // Skip if link has target="_blank" or download attribute
-    if (link.hasAttribute('target') || link.hasAttribute('download')) {
-      return
-    }
-    
-    // Handle internal page links - prevent default and show transition
-    e.preventDefault()
-    e.stopPropagation()
-    
-    // Show transition overlay
-    transitionOverlay.classList.add('active')
-    
-    // Navigate after transition delay
-    setTimeout(() => {
-      window.location.href = href
-    }, 300)
-  }, false) // Use bubble phase so smooth scrolling handles first
-  
-  // Handle page show event (for back/forward navigation)
-  window.addEventListener('pageshow', () => {
-    transitionOverlay.classList.remove('active')
-  })
-  
-  // Handle page load - ensure overlay is removed and mark page as loaded
+function initPageLoadAnimation() {
+  // Mark page as loaded for animations
   window.addEventListener('load', () => {
-    transitionOverlay.classList.remove('active')
     const app = document.getElementById('app')
     if (app) {
       app.classList.add('page-loaded')
@@ -361,5 +306,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations()
   initMagneticEffect()
   initActiveNavigation()
-  initPageTransitions()
+  initPageLoadAnimation()
 })

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Fast Websites in 2024 - AI Studio Blog</title>
+  </head>
+  <body>
+    <!-- Main container for page content -->
+    <div id="app">
+      <!-- Scroll Progress Indicator -->
+      <div class="scroll-progress" id="scroll-progress"></div>
+      
+      <!-- Header / Navigation -->
+      <header class="header">
+        <nav class="nav container">
+          <a href="index.html" class="nav__logo">AI Studio</a>
+          <ul class="nav__menu" id="nav-menu">
+            <li><a href="index.html#home" class="nav__link">Home</a></li>
+            <li><a href="index.html#services" class="nav__link">Services</a></li>
+            <li><a href="index.html#process" class="nav__link">Process</a></li>
+            <li><a href="index.html#stack" class="nav__link">Stack</a></li>
+            <li><a href="blog.html" class="nav__link nav__link--active">Blog</a></li>
+            <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+          </ul>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <main>
+        <!-- Blog Post Header -->
+        <article class="blog-post">
+          <header class="blog-post__header">
+            <div class="container">
+              <div class="blog-post__breadcrumb">
+                <a href="blog.html" class="blog-post__breadcrumb-link">← Back to Blog</a>
+              </div>
+              
+              <div class="blog-post__meta">
+                <time class="blog-post__date" datetime="2024-12-15">December 15, 2024</time>
+                <span class="blog-post__category">Web Development</span>
+              </div>
+              
+              <h1 class="blog-post__title">Building Fast Websites in 2024</h1>
+              
+              <p class="blog-post__excerpt">A deep dive into modern web performance techniques and how we build websites that load in under a second.</p>
+            </div>
+          </header>
+
+          <!-- Blog Post Featured Image -->
+          <div class="blog-post__image">
+            <div class="blog-post__image-placeholder">
+              <svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 18h32M20 12v24" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Blog Post Content -->
+          <div class="blog-post__content">
+            <div class="container">
+              <div class="blog-post__body">
+                <p class="blog-post__paragraph">
+                  Website performance has never been more important. Users expect websites to load instantly, and search engines reward fast sites with better rankings. In this post, we'll explore the techniques and tools we use to build websites that load in under a second.
+                </p>
+
+                <h2 class="blog-post__heading">Why Speed Matters</h2>
+                <p class="blog-post__paragraph">
+                  Studies show that 53% of mobile users abandon sites that take longer than 3 seconds to load. Every second of delay can cost you conversions, user engagement, and search rankings. But beyond the numbers, fast websites simply feel better to use.
+                </p>
+
+                <h2 class="blog-post__heading">Our Performance Strategy</h2>
+                <p class="blog-post__paragraph">
+                  We take a comprehensive approach to performance, focusing on several key areas:
+                </p>
+
+                <h3 class="blog-post__subheading">1. Optimized Assets</h3>
+                <p class="blog-post__paragraph">
+                  We compress images, minify CSS and JavaScript, and use modern formats like WebP for images. Every asset is optimized before it goes live.
+                </p>
+
+                <h3 class="blog-post__subheading">2. Efficient Code</h3>
+                <p class="blog-post__paragraph">
+                  We write clean, efficient code that does exactly what it needs to do—nothing more, nothing less. We avoid unnecessary libraries and frameworks when simpler solutions will work.
+                </p>
+
+                <h3 class="blog-post__subheading">3. Smart Caching</h3>
+                <p class="blog-post__paragraph">
+                  Proper caching strategies ensure that returning visitors get an even faster experience. We configure server-side caching and use CDNs to serve content from locations closer to users.
+                </p>
+
+                <h3 class="blog-post__subheading">4. Lazy Loading</h3>
+                <p class="blog-post__paragraph">
+                  We implement lazy loading for images and other resources that aren't needed immediately. This reduces initial load time and saves bandwidth for users.
+                </p>
+
+                <h2 class="blog-post__heading">Measuring Performance</h2>
+                <p class="blog-post__paragraph">
+                  We use tools like Google PageSpeed Insights, Lighthouse, and WebPageTest to measure and monitor performance. These tools help us identify bottlenecks and track improvements over time.
+                </p>
+
+                <h2 class="blog-post__heading">Real Results</h2>
+                <p class="blog-post__paragraph">
+                  By focusing on performance from the start, we've been able to build websites that consistently score 90+ on PageSpeed Insights and load in under one second on fast connections. But more importantly, these sites feel fast and responsive to users.
+                </p>
+
+                <h2 class="blog-post__heading">Conclusion</h2>
+                <p class="blog-post__paragraph">
+                  Building fast websites isn't about using the latest framework or following every trend. It's about understanding performance fundamentals, making smart choices, and testing everything. If you're building a new website, make performance a priority from day one.
+                </p>
+
+                <p class="blog-post__paragraph">
+                  Need help building a fast website? <a href="index.html#contact" class="blog-post__link">Get in touch</a> and let's talk about your project.
+                </p>
+              </div>
+
+              <!-- Blog Post Footer -->
+              <footer class="blog-post__footer">
+                <div class="blog-post__tags">
+                  <span class="blog-post__tag">Web Development</span>
+                  <span class="blog-post__tag">Performance</span>
+                  <span class="blog-post__tag">Best Practices</span>
+                </div>
+                
+                <div class="blog-post__share">
+                  <span class="blog-post__share-label">Share this post:</span>
+                  <a href="#" class="blog-post__share-link" aria-label="Share on Twitter">Twitter</a>
+                  <a href="#" class="blog-post__share-link" aria-label="Share on LinkedIn">LinkedIn</a>
+                  <a href="#" class="blog-post__share-link" aria-label="Share on Facebook">Facebook</a>
+                </div>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Related Posts (WordPress/Jetpack will handle this) -->
+          <section class="blog-related">
+            <div class="container">
+              <h2 class="blog-related__title">Related Posts</h2>
+              <div class="blog-related__grid">
+                <article class="blog-card blog-card--small fade-in">
+                  <div class="blog-card__image">
+                    <a href="blog-post.html" class="blog-card__image-link">
+                      <div class="blog-card__image-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                          <circle cx="18" cy="20" r="2" fill="currentColor"/>
+                          <circle cx="30" cy="20" r="2" fill="currentColor"/>
+                          <path d="M18 30c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="blog-card__content">
+                    <div class="blog-card__meta">
+                      <time class="blog-card__date" datetime="2024-12-10">December 10, 2024</time>
+                      <span class="blog-card__category">AI Agents</span>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-post.html" class="blog-card__title-link">How to Build AI Agents That Actually Help</a>
+                    </h3>
+                  </div>
+                </article>
+
+                <article class="blog-card blog-card--small fade-in">
+                  <div class="blog-card__image">
+                    <a href="blog-post.html" class="blog-card__image-link">
+                      <div class="blog-card__image-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="14" y="8" width="20" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
+                          <circle cx="24" cy="36" r="1.5" fill="currentColor"/>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="blog-card__content">
+                    <div class="blog-card__meta">
+                      <time class="blog-card__date" datetime="2024-12-05">December 5, 2024</time>
+                      <span class="blog-card__category">App Development</span>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-post.html" class="blog-card__title-link">Native vs Web Apps: Making the Right Choice</a>
+                    </h3>
+                  </div>
+                </article>
+
+                <article class="blog-card blog-card--small fade-in">
+                  <div class="blog-card__image">
+                    <a href="blog-post.html" class="blog-card__image-link">
+                      <div class="blog-card__image-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                          <path d="M8 18h32M20 12v24" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="blog-card__content">
+                    <div class="blog-card__meta">
+                      <time class="blog-card__date" datetime="2024-11-28">November 28, 2024</time>
+                      <span class="blog-card__category">Web Development</span>
+                    </div>
+                    <h3 class="blog-card__title">
+                      <a href="blog-post.html" class="blog-card__title-link">The Modern Web Development Stack</a>
+                    </h3>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+        </article>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__content">
+            <div class="footer__section">
+              <h3 class="footer__title">Sitemap</h3>
+              <ul class="footer__links">
+                <li><a href="index.html#home" class="footer__link">Home</a></li>
+                <li><a href="index.html#services" class="footer__link">Services</a></li>
+                <li><a href="index.html#process" class="footer__link">Process</a></li>
+                <li><a href="index.html#stack" class="footer__link">Stack</a></li>
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Legal</h3>
+              <ul class="footer__links">
+                <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
+                <li><a href="terms.html" class="footer__link">Terms of Service</a></li>
+                <li><a href="cookie.html" class="footer__link">Cookie Policy</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Resources</h3>
+              <ul class="footer__links">
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="#" class="footer__link">Documentation</a></li>
+                <li><a href="#" class="footer__link">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Our Products</h3>
+              <ul class="footer__links">
+                <li><a href="https://dmify.net" target="_blank" rel="noopener noreferrer" class="footer__link">DMIFY</a></li>
+                <li><a href="https://dentaldesk.dk/" target="_blank" rel="noopener noreferrer" class="footer__link">DentalDesk</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__text">&copy; 2024 AI Studio. All rights reserved.</p>
+            <p class="footer__built">Built with ❤️ in Copenhagen</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+

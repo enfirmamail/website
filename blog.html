@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - AI Studio</title>
+  </head>
+  <body>
+    <!-- Main container for page content -->
+    <div id="app">
+      <!-- Scroll Progress Indicator -->
+      <div class="scroll-progress" id="scroll-progress"></div>
+      
+      <!-- Header / Navigation -->
+      <header class="header">
+        <nav class="nav container">
+          <a href="index.html" class="nav__logo">AI Studio</a>
+          <ul class="nav__menu" id="nav-menu">
+            <li><a href="index.html#home" class="nav__link">Home</a></li>
+            <li><a href="index.html#services" class="nav__link">Services</a></li>
+            <li><a href="index.html#process" class="nav__link">Process</a></li>
+            <li><a href="index.html#stack" class="nav__link">Stack</a></li>
+            <li><a href="blog.html" class="nav__link nav__link--active">Blog</a></li>
+            <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+          </ul>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <main>
+        <!-- Blog Header Section -->
+        <section class="section blog-header" style="padding-top: calc(var(--spacing-2xl) + 2rem);">
+          <div class="container">
+            <h1 class="section__title fade-in">Blog</h1>
+            <p class="section__subtitle fade-in">Thoughts on web development, AI, and building products that matter</p>
+          </div>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section class="section blog-posts">
+          <div class="container">
+            <div class="blog-grid">
+              <!-- Blog Post 1 -->
+              <article class="blog-card fade-in">
+                <div class="blog-card__image">
+                  <a href="blog-post.html" class="blog-card__image-link">
+                    <div class="blog-card__image-placeholder">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 18h32M20 12v24" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__meta">
+                    <time class="blog-card__date" datetime="2024-12-15">December 15, 2024</time>
+                    <span class="blog-card__category">Web Development</span>
+                  </div>
+                  <h2 class="blog-card__title">
+                    <a href="blog-post.html" class="blog-card__title-link">Building Fast Websites in 2024</a>
+                  </h2>
+                  <p class="blog-card__excerpt">A deep dive into modern web performance techniques and how we build websites that load in under a second.</p>
+                  <a href="blog-post.html" class="blog-card__read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Blog Post 2 -->
+              <article class="blog-card fade-in">
+                <div class="blog-card__image">
+                  <a href="blog-post.html" class="blog-card__image-link">
+                    <div class="blog-card__image-placeholder">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="18" cy="20" r="2" fill="currentColor"/>
+                        <circle cx="30" cy="20" r="2" fill="currentColor"/>
+                        <path d="M18 30c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__meta">
+                    <time class="blog-card__date" datetime="2024-12-10">December 10, 2024</time>
+                    <span class="blog-card__category">AI Agents</span>
+                  </div>
+                  <h2 class="blog-card__title">
+                    <a href="blog-post.html" class="blog-card__title-link">How to Build AI Agents That Actually Help</a>
+                  </h2>
+                  <p class="blog-card__excerpt">Moving beyond chatbots to create AI agents that solve real business problems and automate workflows effectively.</p>
+                  <a href="blog-post.html" class="blog-card__read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Blog Post 3 -->
+              <article class="blog-card fade-in">
+                <div class="blog-card__image">
+                  <a href="blog-post.html" class="blog-card__image-link">
+                    <div class="blog-card__image-placeholder">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="14" y="8" width="20" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="24" cy="36" r="1.5" fill="currentColor"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__meta">
+                    <time class="blog-card__date" datetime="2024-12-05">December 5, 2024</time>
+                    <span class="blog-card__category">App Development</span>
+                  </div>
+                  <h2 class="blog-card__title">
+                    <a href="blog-post.html" class="blog-card__title-link">Native vs Web Apps: Making the Right Choice</a>
+                  </h2>
+                  <p class="blog-card__excerpt">When to build native apps, when to go web-based, and how to decide what's best for your project and users.</p>
+                  <a href="blog-post.html" class="blog-card__read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Blog Post 4 -->
+              <article class="blog-card fade-in">
+                <div class="blog-card__image">
+                  <a href="blog-post.html" class="blog-card__image-link">
+                    <div class="blog-card__image-placeholder">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 18h32M20 12v24" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__meta">
+                    <time class="blog-card__date" datetime="2024-11-28">November 28, 2024</time>
+                    <span class="blog-card__category">Web Development</span>
+                  </div>
+                  <h2 class="blog-card__title">
+                    <a href="blog-post.html" class="blog-card__title-link">The Modern Web Development Stack</a>
+                  </h2>
+                  <p class="blog-card__excerpt">Our favorite tools and frameworks for building modern websites and applications that scale.</p>
+                  <a href="blog-post.html" class="blog-card__read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Blog Post 5 -->
+              <article class="blog-card fade-in">
+                <div class="blog-card__image">
+                  <a href="blog-post.html" class="blog-card__image-link">
+                    <div class="blog-card__image-placeholder">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="18" cy="20" r="2" fill="currentColor"/>
+                        <circle cx="30" cy="20" r="2" fill="currentColor"/>
+                        <path d="M18 30c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__meta">
+                    <time class="blog-card__date" datetime="2024-11-20">November 20, 2024</time>
+                    <span class="blog-card__category">AI Agents</span>
+                  </div>
+                  <h2 class="blog-card__title">
+                    <a href="blog-post.html" class="blog-card__title-link">AI Automation: What Actually Works</a>
+                  </h2>
+                  <p class="blog-card__excerpt">Real-world examples of AI automation that save time and money, without the hype.</p>
+                  <a href="blog-post.html" class="blog-card__read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Blog Post 6 -->
+              <article class="blog-card fade-in">
+                <div class="blog-card__image">
+                  <a href="blog-post.html" class="blog-card__image-link">
+                    <div class="blog-card__image-placeholder">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="14" y="8" width="20" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="24" cy="36" r="1.5" fill="currentColor"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__meta">
+                    <time class="blog-card__date" datetime="2024-11-15">November 15, 2024</time>
+                    <span class="blog-card__category">App Development</span>
+                  </div>
+                  <h2 class="blog-card__title">
+                    <a href="blog-post.html" class="blog-card__title-link">Building Apps That People Actually Use</a>
+                  </h2>
+                  <p class="blog-card__excerpt">Lessons learned from building apps that solve real problems and keep users coming back.</p>
+                  <a href="blog-post.html" class="blog-card__read-more">Read more →</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Pagination (WordPress will handle this) -->
+            <div class="blog-pagination fade-in">
+              <nav class="pagination" role="navigation" aria-label="Blog pagination">
+                <a href="#" class="pagination__link pagination__link--prev" aria-label="Previous page">← Previous</a>
+                <span class="pagination__current">Page 1 of 3</span>
+                <a href="#" class="pagination__link pagination__link--next" aria-label="Next page">Next →</a>
+              </nav>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__content">
+            <div class="footer__section">
+              <h3 class="footer__title">Sitemap</h3>
+              <ul class="footer__links">
+                <li><a href="index.html#home" class="footer__link">Home</a></li>
+                <li><a href="index.html#services" class="footer__link">Services</a></li>
+                <li><a href="index.html#process" class="footer__link">Process</a></li>
+                <li><a href="index.html#stack" class="footer__link">Stack</a></li>
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Legal</h3>
+              <ul class="footer__links">
+                <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
+                <li><a href="terms.html" class="footer__link">Terms of Service</a></li>
+                <li><a href="cookie.html" class="footer__link">Cookie Policy</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Resources</h3>
+              <ul class="footer__links">
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="#" class="footer__link">Documentation</a></li>
+                <li><a href="#" class="footer__link">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="footer__section">
+              <h3 class="footer__title">Our Products</h3>
+              <ul class="footer__links">
+                <li><a href="https://dmify.net" target="_blank" rel="noopener noreferrer" class="footer__link">DMIFY</a></li>
+                <li><a href="https://dentaldesk.dk/" target="_blank" rel="noopener noreferrer" class="footer__link">DentalDesk</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__text">&copy; 2024 AI Studio. All rights reserved.</p>
+            <p class="footer__built">Built with ❤️ in Copenhagen</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+

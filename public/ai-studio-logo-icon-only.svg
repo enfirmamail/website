@@ -1,0 +1,25 @@
+<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Icon: Modern AI/Network Symbol -->
+  <!-- Central hub (AI core) -->
+  <circle cx="25" cy="25" r="9" fill="#5C7A81"/>
+  <circle cx="25" cy="25" r="5" fill="#FFFFFF" opacity="0.25"/>
+  
+  <!-- Connected nodes (network) -->
+  <circle cx="10" cy="10" r="5.5" fill="#8DBCC7"/>
+  <circle cx="10" cy="40" r="5.5" fill="#8DBCC7"/>
+  <circle cx="40" cy="10" r="5.5" fill="#A4CCD9"/>
+  <circle cx="40" cy="40" r="5.5" fill="#A4CCD9"/>
+  
+  <!-- Connection lines (neural network) -->
+  <line x1="25" y1="25" x2="10" y2="10" stroke="#5C7A81" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+  <line x1="25" y1="25" x2="10" y2="40" stroke="#5C7A81" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+  <line x1="25" y1="25" x2="40" y2="10" stroke="#5C7A81" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+  <line x1="25" y1="25" x2="40" y2="40" stroke="#5C7A81" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+  
+  <!-- Outer connection arcs -->
+  <path d="M 10 10 Q 25 5 40 10" stroke="#C4E1E6" stroke-width="1.5" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 10 40 Q 25 45 40 40" stroke="#C4E1E6" stroke-width="1.5" fill="none" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Accent dot (innovation) -->
+  <circle cx="25" cy="6" r="3" fill="#EBFFD8"/>
+</svg>
